@@ -32,6 +32,18 @@ class Person(pygame.sprite.Sprite):
         self.rect = self.image.get_rect(center = (random.randint(0,self.DISPLAYSURF.get_width()),random.randint(0,self.DISPLAYSURF.get_height())))
 
     def update(self):
+        if self.move_x > 0 and (self.rect.right + self.move_x) > self.DISPLAYSURF.get_width():
+            self.move_x *= -1
+
+        if self.move_x < 0 and (self.rect.left - self.move_x) < 0:
+            self.move_x *= -1
+
+        if self.move_y > 0 and (self.rect.bottom + self.move_y) > self.DISPLAYSURF.get_height():
+            self.move_y *= -1
+
+        if self.move_y < 0 and (self.rect.top - self.move_y) < 0:
+            self.move_y *= -1
+
         self.rect.move_ip(self.move_x, self.move_y)
         self.TSLT += 1
         if self.TSLT > random.randint(10,100):
