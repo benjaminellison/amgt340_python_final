@@ -15,8 +15,12 @@ class Person(pygame.sprite.Sprite):
         pygame.sprite.Sprite.__init__(self)
 
         # Set up variables
+        # Health or Sick?
+        self.healthy = True
+        
         # time_since_last_turn
         self.TSLT = 0
+
         # amount/distance to move each step in the X and Y
         self.move_x = random.randint(-2,2)
         self.move_y = random.randint(-2,2)

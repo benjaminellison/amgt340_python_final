@@ -1,6 +1,8 @@
 import pygame
 from pygame.locals import *
 import random, time
+import logging
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
 import person
 
@@ -22,22 +24,17 @@ DISPLAYSURF = pygame.display.set_mode((SCREEN_WIDTH,SCREEN_HEIGHT))
 DISPLAYSURF.fill(WHITE)
 pygame.display.set_caption("Contagion Simulator")
 
-# Set up sprites
-#P1 = person.Person(DISPLAYSURF, BLUE)
-
-
 # Set up Groups
-people = pygame.sprite.Group()
-#people.add(P1)
-
 all_sprites = pygame.sprite.Group()
-#all_sprites.add(P1)
+healthy_sprites = pygame.sprite.Group()
+sick_sprites = pygame.sprite.Group()
 
-for i in range(10):
+for i in range(30):
     P = person.Person(DISPLAYSURF, BLUE)
-    people.add(P)
     all_sprites.add(P)
+    #if random.random() < .05
 
+logging.debug('This is a log message.')
 
 # Main loop
 while True:
@@ -49,16 +46,12 @@ while True:
 
     DISPLAYSURF.fill(WHITE)
 
-    # Move and redraw sprites
-    # for entity in all_sprites:
-    #     DISPLAYSURF.blit(entity.image, entity.rect)
-    #     entity.move()
-
-    # in case of collision
-    ## if pygame.sprite.spritecollideany(P1)
-
+    #overlap = pygame.sprite.groupcollide(people, people, False, False)
+    
     all_sprites.update()
 
     pygame.display.update()
 
     FramePerSec.tick(FPS)
+
+
