@@ -30,9 +30,14 @@ healthy_sprites = pygame.sprite.Group()
 sick_sprites = pygame.sprite.Group()
 
 for i in range(30):
-    P = person.Person(DISPLAYSURF, BLUE)
+    healthy = random.random() > .07
+    P = person.Person(DISPLAYSURF, healthy)
     all_sprites.add(P)
-    #if random.random() < .05
+    if healthy:
+        healthy_sprites.add(P)
+    else:
+        sick_sprites.add(P)
+    
 
 logging.debug('This is a log message.')
 

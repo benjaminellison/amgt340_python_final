@@ -10,14 +10,14 @@ import pygame, random
 class Person(pygame.sprite.Sprite):
 
     #Constructor
-    def __init__(self, screen, color = [125,125,125], width = 10, height = 10):
+    def __init__(self, screen, healthy = True, width = 10, height = 10):
         #parent class constructor
         pygame.sprite.Sprite.__init__(self)
 
         # Set up variables
         # Health or Sick?
-        self.healthy = True
-        
+        self.healthy = healthy
+
         # time_since_last_turn
         self.TSLT = 0
 
@@ -27,7 +27,12 @@ class Person(pygame.sprite.Sprite):
 
         #make the image of this sprite
         self.image = pygame.Surface([width,height])
-        self.image.fill(color)
+        if self.healthy:
+            self.image.fill([0, 255, 0])
+        else:
+            self.image.fill([255, 0, 0])
+        
+                
 
         # store a  reference to the screen, for positioning and movement
         self.DISPLAYSURF = screen
