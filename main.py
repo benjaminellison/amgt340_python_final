@@ -1,4 +1,4 @@
-import pygame, sys
+import pygame
 from pygame.locals import *
 import random, time
 
@@ -45,7 +45,7 @@ while True:
     for event in pygame.event.get():
         if event.type == QUIT:
             pygame.quit()
-            sys.exit()
+            quit(0)
 
     DISPLAYSURF.fill(WHITE)
 
