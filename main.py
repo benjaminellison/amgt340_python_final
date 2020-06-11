@@ -50,12 +50,15 @@ while True:
     DISPLAYSURF.fill(WHITE)
 
     # Move and redraw sprites
-    for entity in all_sprites:
-        DISPLAYSURF.blit(entity.image, entity.rect)
-        entity.move()
+    # for entity in all_sprites:
+    #     DISPLAYSURF.blit(entity.image, entity.rect)
+    #     entity.move()
 
     # in case of collision
     ## if pygame.sprite.spritecollideany(P1)
 
+    all_sprites.update()
+
     pygame.display.update()
+
     FramePerSec.tick(FPS)
