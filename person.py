@@ -63,5 +63,10 @@ class Person(pygame.sprite.Sprite):
         if not self.DISPLAYSURF.get_rect().colliderect(self.rect):
             self.rect = self.image.get_rect(center = (random.randint(0,self.DISPLAYSURF.get_width()),random.randint(0,self.DISPLAYSURF.get_height()))) 
 
+        if self.healthy:
+            self.image.fill([0, 255, 0])
+        else:
+            self.image.fill([255, 0, 0])
+
         self.DISPLAYSURF.blit(self.image, self.rect)
 

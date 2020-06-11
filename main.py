@@ -39,7 +39,7 @@ for i in range(30):
         sick_sprites.add(P)
     
 
-logging.debug('This is a log message.')
+#logging.debug('This is a log message.')
 
 # Main loop
 while True:
@@ -51,8 +51,12 @@ while True:
 
     DISPLAYSURF.fill(WHITE)
 
-    #overlap = pygame.sprite.groupcollide(people, people, False, False)
-    
+    overlap = pygame.sprite.groupcollide(sick_sprites, healthy_sprites, False, False)
+    for sicko, exposedPeeps in overlap.items():
+        for exposed in exposedPeeps:
+            sick_sprites.add(exposed)
+            exposed.healthy = False
+
     all_sprites.update()
 
     pygame.display.update()
