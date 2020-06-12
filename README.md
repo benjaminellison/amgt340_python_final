@@ -1,1 +1,3 @@
 My final project for the AMGT 340 class.
+
+For my final, I chose to write a program in Python.  It's been probably close to 15 years since I've done any python programming, so it was fun.  Given our current environment, I decided to write a little "pandemic simulator."  I tried to keep it very simple, because I know I have a tendency to waaaaay over-engineer things (feature creep).  This simulator just throws a bunch of "healthy" people up on the screen that wander aimlessly around and a few sick people, and when they bump into each other, the contagion spreads.  It isn't super realistic, but adding a lot more features to make it more realistic would have really extended the amount of time it took to code it. 
